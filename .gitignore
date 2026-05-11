@@ -1,0 +1,12 @@
+target/
+.allure/
+.idea/
+
+*.iws
+*.iml
+*.ipr
+
+.vscode/
+.DS_Store
+.kotlin/
+build/
