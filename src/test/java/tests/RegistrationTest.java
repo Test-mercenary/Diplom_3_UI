@@ -1,9 +1,19 @@
+package tests;
+
+import api.TestUser;
+import api.UserApiClient;
+import base.BaseTest;
+import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+import pages.LoginPage;
+import pages.MainPage;
+import pages.RegisterPage;
 
 @Feature("Регистрация пользователя")
 public class RegistrationTest extends BaseTest {
@@ -25,6 +35,8 @@ public class RegistrationTest extends BaseTest {
 
     @Test
     @Story("Успешная регистрация")
+    @DisplayName("Успешная регистрация пользователя")
+    @Description("Проверяем, что пользователь может успешно зарегистрироваться и после регистрации открывается страница входа")
     public void registerNewUserShouldOpenLoginPage() {
         registeredUser = TestUser.getRandomUser();
 
@@ -47,6 +59,8 @@ public class RegistrationTest extends BaseTest {
 
     @Test
     @Story("Ошибка при некорректном пароле")
+    @DisplayName("Ошибка при регистрации с коротким паролем")
+    @Description("Проверяем, что при вводе пароля короче 6 символов отображается ошибка «Некорректный пароль»")
     public void registerUserWithShortPasswordShouldShowError() {
         TestUser user = new TestUser(
                 "ui-test-user-" + System.currentTimeMillis() + "@yandex.ru",

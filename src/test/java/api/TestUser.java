@@ -1,3 +1,5 @@
+package api;
+
 public class TestUser {
 
     public String email;
